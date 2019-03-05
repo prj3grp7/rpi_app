@@ -1,0 +1,5 @@
+#! /bin/bash
+
+insmod playerSide.ko
+dtoverlay -d . playerSide.dtbo
+dmesg 

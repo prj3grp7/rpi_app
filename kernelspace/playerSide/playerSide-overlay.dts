@@ -1,0 +1,22 @@
+// Definitions for plat_drv module
+// Adapted from w1-gpio-pullup-overlay.dts
+/dts-v1/;
+/plugin/;
+
+/ {
+  compatible = "brcm,bcm2835", "brcm,bcm2836", "brcm,bcm2708", "brcm,bcm2709";
+
+  fragment@0 {
+    /* Add device to base */
+    target-path = "/";
+    __overlay__ {
+      /* instance:type */
+      plat_drv: plat_drv@0 {
+        /* Label to match in driver */
+        gpios=<&gpio 25 0>,<&gpio 24 0>,<&gpio 23 0>;
+        compatible = "i2c_plat_drv";
+        status = "okay";
+      };
+    };
+  };
+};
